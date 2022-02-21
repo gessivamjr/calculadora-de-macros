@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PopupOqueContext } from "./Contexts";
-import { Oque } from "./styles/styles";
+import { Oque } from "../styles/styles";
 
 export default function PopupOque() {
     const [showPopupOque, setshowPopupOque] = useContext(PopupOqueContext);

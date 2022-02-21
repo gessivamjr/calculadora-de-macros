@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PopupSobreContext } from "./Contexts";
-import { Sobre } from "./styles/styles";
+import { Sobre } from "../styles/styles";
 
 export default function PopupSobre() {
     const [showPopupSobre, setShowPopupSobre] = useContext(PopupSobreContext);

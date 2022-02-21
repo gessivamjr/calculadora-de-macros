@@ -1,5 +1,6 @@
-import { Box } from "./styles/styles";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Box } from "../styles/styles";
 import { ResultContext } from "./Contexts";
 
 export default function Forms() {
@@ -94,7 +95,7 @@ export default function Forms() {
             <h1 className={showResult ? "result" : "result hide"}>
                 {showResult} kcal
             </h1>
-            <a href="">Calculadora de Macros &#8594;</a>
+            <Link to="/calculator/">Calculadora de Macros &#8594;</Link>
         </Box>
     );
 }

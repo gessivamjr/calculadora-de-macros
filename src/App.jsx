@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import Forms from "./components/Forms";
-import Nav from "./components/Nav";
+import AllRoutes from "./routes";
 import {
     PopupOqueProvider,
     PopupSobreProvider,
@@ -26,8 +25,7 @@ export default function App() {
             <PopupSobreProvider>
                 <ResultProvider>
                     <GlobaStyle />
-                    <Nav />
-                    <Forms />
+                    <AllRoutes />
                 </ResultProvider>
             </PopupSobreProvider>
         </PopupOqueProvider>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Navbar } from "./styles/styles";
+import { Navbar } from "../styles/styles";
 import { PopupOqueContext, PopupSobreContext } from "./Contexts";
 import PopupOque from "./PopupOque";
 import PopupSobre from "./PopupSobre";
