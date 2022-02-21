@@ -2,9 +2,10 @@ import { createGlobalStyle } from "styled-components";
 import Forms from "./components/Forms";
 import Nav from "./components/Nav";
 import {
-  PopupOqueProvider,
-  PopupSobreProvider,
-} from "./components/PopupsContext";
+    PopupOqueProvider,
+    PopupSobreProvider,
+    ResultProvider,
+} from "./components/Contexts";
 
 const GlobaStyle = createGlobalStyle`
 *{
@@ -20,13 +21,15 @@ body{
 `;
 
 export default function App() {
-  return (
-    <PopupOqueProvider>
-      <PopupSobreProvider>
-        <GlobaStyle />
-        <Nav />
-        <Forms />
-      </PopupSobreProvider>
-    </PopupOqueProvider>
-  );
+    return (
+        <PopupOqueProvider>
+            <PopupSobreProvider>
+                <ResultProvider>
+                    <GlobaStyle />
+                    <Nav />
+                    <Forms />
+                </ResultProvider>
+            </PopupSobreProvider>
+        </PopupOqueProvider>
+    );
 }
