@@ -46,7 +46,7 @@ export default function UserProfile() {
                         <input
                             type="radio"
                             className="objective__radio"
-                            name="objetive"
+                            name="objective"
                         />
                         <label className="objective__label">
                             Perda de gordura
