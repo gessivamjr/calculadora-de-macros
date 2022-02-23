@@ -1,23 +1,54 @@
 import styled from "styled-components";
 
+export const EquationContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+`;
+
+export const CalculatorContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+
+    .link {
+        position: absolute;
+        top: 94%;
+        right: 48.5%;
+        font-size: larger;
+        font-weight: bold;
+        text-decoration: none;
+        color: ${({ theme }) => theme.color.primary};
+    }
+
+    .link:hover {
+        color: ${({ theme }) => theme.color.secundary};
+    }
+`;
+
 export const Box = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: auto;
     width: 450px;
     height: 550px;
     border: 1px solid ${({ theme }) => theme.color.quaternary};
-    box-shadow: 7.5px 7.5px red;
+    box-shadow: 5px 5px 5px red;
     background-color: ${({ theme }) => theme.color.primary};
+`;
+
+export const Navbar = styled.nav`
+    display: flex;
+    justify-content: space-between;
 
     button {
-        width: 80px;
-        padding: 5px;
+        padding: 10px;
+        margin: 20px;
         font-size: 15px;
         border: 1px solid ${({ theme }) => theme.color.quaternary};
-        box-shadow: 1.5px 1.5px red;
+        box-shadow: 2.5px 2.5px 2.5px red;
         background-color: ${({ theme }) => theme.color.primary};
     }
 
@@ -25,42 +56,112 @@ export const Box = styled.div`
         background-color: ${({ theme }) => theme.color.secundary};
     }
 
-    .input_button {
-        margin-right: 10px;
+    .popup__oque {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 70px;
+        left: 50px;
+        width: 400px;
+        height: 450px;
+        background-color: ${({ theme }) => theme.color.primary};
+        box-shadow: 5px 5px 5px red;
     }
+
+    .popup__sobre {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 70px;
+        right: 50px;
+        width: 400px;
+        height: 450px;
+        background-color: ${({ theme }) => theme.color.primary};
+        box-shadow: 5px 5px 5px red;
+    }
+
+    .popup__oque--button {
+        box-shadow: 2.5px 2.5px 2.5px red;
+        position: absolute;
+        left: 365px;
+        bottom: 400px;
+    }
+
+    .popup__sobre--button {
+        box-shadow: 2.5px 2.5px 2.5px red;
+        position: absolute;
+        right: 365px;
+        bottom: 400px;
+    }
+
+    .hide {
+        display: none;
+    }
+`;
+
+export const FormContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
     .title {
         font-size: 35px;
         margin-top: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
-    .radio_buttons {
-        width: 100%;
+    .radios {
         display: flex;
+        justify-content: center;
         align-items: center;
         margin-bottom: 15px;
         position: relative;
-        left: 5px;
+        left: 7.5px;
     }
 
-    .radio {
-        margin-right: 10px;
-    }
-
-    label {
+    .inputs {
+        margin: auto;
+        width: 50%;
         text-align: center;
-        display: block;
     }
 
-    .fields {
+    .buttons {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        right: 5px;
+        margin-top: 10px;
+    }
+
+    .radios__button {
+        margin-right: 5px;
+    }
+
+    .radios__label {
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .inputs__fields {
         width: 100%;
         margin-bottom: 15px;
-    }
-
-    input {
         text-align: center;
         border: 1px solid ${({ theme }) => theme.color.quaternary};
+    }
+
+    .buttons__form {
+        margin-left: 10px;
+        width: 80px;
+        padding: 5px;
+        font-size: 15px;
+        border: 1px solid ${({ theme }) => theme.color.quaternary};
+        box-shadow: 1.5px 1.5px 1.5px red;
+        background-color: ${({ theme }) => theme.color.primary};
+    }
+
+    .buttons__form:hover {
+        background-color: ${({ theme }) => theme.color.secundary};
     }
 
     .result {
@@ -73,7 +174,7 @@ export const Box = styled.div`
         display: none;
     }
 
-    a {
+    .link {
         position: absolute;
         top: 570px;
         font-size: large;
@@ -81,71 +182,12 @@ export const Box = styled.div`
         color: black;
     }
 
-    a:hover {
+    .link:hover {
         color: ${({ theme }) => theme.color.quaternary};
     }
 `;
 
-export const Navbar = styled.nav`
-    display: flex;
-    justify-content: space-between;
-
-    button {
-        padding: 10px;
-        margin: 20px;
-        font-size: 15px;
-        border: 1px solid ${({ theme }) => theme.color.quaternary};
-        box-shadow: 2.5px 2.5px red;
-        background-color: ${({ theme }) => theme.color.primary};
-    }
-
-    .popup {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 70px;
-        left: 50px;
-        width: 400px;
-        height: 450px;
-        background-color: ${({ theme }) => theme.color.primary};
-        box-shadow: 5px 5px red;
-    }
-
-    .popup_um {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 70px;
-        right: 50px;
-        width: 400px;
-        height: 450px;
-        background-color: ${({ theme }) => theme.color.primary};
-        box-shadow: 5px 5px red;
-    }
-
-    .hide {
-        display: none;
-    }
-
-    .close {
-        position: absolute;
-        left: 365px;
-        bottom: 400px;
-    }
-
-    .close_um {
-        box-shadow: 2.5px 2.5px red;
-        position: absolute;
-        right: 365px;
-        bottom: 400px;
-    }
-
-    button:hover {
-        background-color: ${({ theme }) => theme.color.secundary};
-    }
-`;
-
-export const Oque = styled.div`
+export const PopupContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -164,21 +206,46 @@ export const Oque = styled.div`
     }
 `;
 
-export const Sobre = styled.div`
+export const ProfileContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    margin-top: 50px;
     padding: 30px;
+    text-align: center;
 
-    h1 {
-        margin-bottom: 25px;
-        font-size: 35px;
+    .TMB,
+    .biotype,
+    .objective {
+        margin-bottom: 50px;
     }
 
-    p {
-        margin-bottom: 25px;
-        word-spacing: 5px;
-        letter-spacing: 1px;
+    .TMB__title,
+    .biotype__title,
+    .objective__title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .TMB__value {
+        font-size: 40px;
+    }
+
+    .biotype__label,
+    .objective__label {
+        font-size: 20px;
+    }
+
+    .biotype__radio {
+        margin-right: 5px;
+        margin-left: 10px;
+    }
+
+    .objective__block {
+        margin-bottom: 7.5px;
+    }
+
+    .objective__radio {
+        margin-right: 5px;
     }
 `;

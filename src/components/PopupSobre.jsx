@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { PopupSobreContext } from "./Contexts";
-import { Sobre } from "../styles/styles";
+import { PopupContent } from "../styles/styles";
 
 export default function PopupSobre() {
     const [showPopupSobre, setShowPopupSobre] = useContext(PopupSobreContext);
     return (
-        <div className={showPopupSobre ? "popup_um" : "popup_um hide"}>
-            <Sobre>
+        <div className={showPopupSobre ? "popup__sobre" : "popup__sobre hide"}>
+            <PopupContent>
                 <h1>Metabolismo Basal</h1>
                 <p>
                     Metabolismo é a denominação do conjunto de processos pelos
@@ -25,11 +25,11 @@ export default function PopupSobre() {
                 </sub>
                 <button
                     onClick={() => setShowPopupSobre(null)}
-                    className="close_um"
+                    className="popup__sobre--button"
                 >
                     X
                 </button>
-            </Sobre>
+            </PopupContent>
         </div>
     );
 }

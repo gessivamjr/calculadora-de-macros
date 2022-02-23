@@ -1,18 +1,17 @@
+import { Box, CalculatorContainer } from "../styles/styles";
 import styled from "styled-components";
-import { Box } from "../styles/styles";
-
-export const Container = styled.div`
-    display: flex;
-    justify-content: space-around;
-    height: 100vh;
-`;
+import UserProfile from "../components/UserProfile";
+import { Link } from "react-router-dom";
 
 export default function Calculator() {
     return (
-        <Container>
+        <CalculatorContainer>
+            <UserProfile></UserProfile>
             <Box></Box>
             <Box></Box>
-            <Box></Box>
-        </Container>
+            <Link to="/" className="link">
+                &#8592; Voltar
+            </Link>
+        </CalculatorContainer>
     );
 }

@@ -1,17 +1,34 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Box } from "../styles/styles";
+import { Box, FormContent } from "../styles/styles";
 import { ResultContext } from "./Contexts";
 
 export default function Forms() {
     const [showResult, setShowResult] = useContext(ResultContext);
 
+    useEffect(() => {
+        if (showResult) {
+            localStorage.setItem("result", showResult);
+        }
+    }, [showResult]);
+
+    useEffect(() => {
+        const savedResult = localStorage.getItem("result");
+        if (savedResult) {
+            setShowResult(savedResult);
+        }
+    }, []);
+
     function calculate() {
-        const fieldWeight = document.getElementsByClassName("fields")[0];
-        const fieldHeight = document.getElementsByClassName("fields")[1];
-        const fieldAge = document.getElementsByClassName("fields")[2];
-        let manRadio = document.getElementsByClassName("radio")[1].checked;
-        let womanRadio = document.getElementsByClassName("radio")[3].checked;
+        const fieldWeight =
+            document.getElementsByClassName("inputs__fields")[0];
+        const fieldHeight =
+            document.getElementsByClassName("inputs__fields")[1];
+        const fieldAge = document.getElementsByClassName("inputs__fields")[2];
+        const manRadio =
+            document.getElementsByClassName("radios__button")[0].checked;
+        const womanRadio =
+            document.getElementsByClassName("radios__button")[1].checked;
         const manEquation =
             66 +
             13.7 * fieldWeight.value +
@@ -23,15 +40,15 @@ export default function Forms() {
             1.8 * fieldHeight.value -
             4.7 * fieldAge.value;
 
-        if (manRadio == true) {
+        if (manRadio === true) {
             return setShowResult(manEquation.toFixed(0));
-        } else if (womanRadio == true) {
+        } else if (womanRadio === true) {
             return setShowResult(womanEquation.toFixed(0));
         }
     }
 
     function clearFields() {
-        const inputs = document.querySelectorAll(".fields");
+        const inputs = document.querySelectorAll(".inputs__fields");
         inputs.forEach((input) => {
             input.value = "";
         });
@@ -39,7 +56,7 @@ export default function Forms() {
     }
 
     {
-        const allRadios = document.getElementsByName("radio_button");
+        const allRadios = document.getElementsByName("gender");
         let booRadio;
         let x = 0;
         for (x = 0; x < allRadios.length; x++) {
@@ -56,46 +73,63 @@ export default function Forms() {
 
     return (
         <Box>
-            <h1 className="title">Equação Harris Benedict</h1>
-            <form>
-                <div className="radio_buttons">
-                    <label className="radio">Homem</label>
-                    <input className="radio" type="radio" name="radio_button" />
-                    <label className="radio">Mulher</label>
-                    <input className="radio" type="radio" name="radio_button" />
+            <FormContent>
+                <h1 className="title">Equação Harris Benedict</h1>
+                <form>
+                    <div className="radios">
+                        <input
+                            className="radios__button"
+                            type="radio"
+                            name="gender"
+                        />
+                        <label className="radios__label">Homem</label>
+                        <input
+                            className="radios__button"
+                            type="radio"
+                            name="gender"
+                        />
+                        <label className="radios__label">Mulher</label>
+                    </div>
+                    <div className="inputs">
+                        <label className="inputs__label">Peso(kg)</label>
+                        <input
+                            className="inputs__fields"
+                            type="number"
+                            required
+                            placeholder="0"
+                        />
+                        <label className="inputs__label">Altura(cm)</label>
+                        <input
+                            className="inputs__fields"
+                            type="number"
+                            required
+                            placeholder="0"
+                        />
+                        <label className="inputs__label">Idade</label>
+                        <input
+                            className="inputs__fields"
+                            type="number"
+                            required
+                            placeholder="0"
+                        />
+                    </div>
+                </form>
+                <div className="buttons">
+                    <button onClick={calculate} className="buttons__form">
+                        Calcular
+                    </button>
+                    <button onClick={clearFields} className="buttons__form">
+                        Limpar
+                    </button>
                 </div>
-                <label>Peso(kg)</label>
-                <input
-                    className="fields"
-                    type="number"
-                    required
-                    placeholder="0"
-                />
-                <label>Altura(cm)</label>
-                <input
-                    className="fields"
-                    type="number"
-                    required
-                    placeholder="0"
-                />
-                <label>Idade</label>
-                <input
-                    className="fields"
-                    type="number"
-                    required
-                    placeholder="0"
-                />
-            </form>
-            <div>
-                <button onClick={calculate} className="input_button">
-                    Calcular
-                </button>
-                <button onClick={clearFields}>Limpar</button>
-            </div>
-            <h1 className={showResult ? "result" : "result hide"}>
-                {showResult} kcal
-            </h1>
-            <Link to="/calculator/">Calculadora de Macros &#8594;</Link>
+
+                <h1 className={showResult ? "result" : "result hide"}>
+                    {showResult} kcal
+                </h1>
+                <Link to="/calculator/" className="link">
+                    Calculadora de Macros &#8594;
+                </Link>
+            </FormContent>
         </Box>
     );
 }

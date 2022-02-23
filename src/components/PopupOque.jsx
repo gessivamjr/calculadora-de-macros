@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { PopupOqueContext } from "./Contexts";
-import { Oque } from "../styles/styles";
+import { PopupContent } from "../styles/styles";
 
 export default function PopupOque() {
     const [showPopupOque, setshowPopupOque] = useContext(PopupOqueContext);
     return (
         <>
-            <div className={showPopupOque ? "popup" : "popup hide"}>
-                <Oque>
+            <div className={showPopupOque ? "popup__oque" : "popup__oque hide"}>
+                <PopupContent>
                     <h1>Para que serve?</h1>
                     <p>
                         Uma ferramenta básica da nutrição completou 100 anos em
@@ -27,11 +27,11 @@ export default function PopupOque() {
                     </sub>
                     <button
                         onClick={() => setshowPopupOque(null)}
-                        className="close"
+                        className="popup__oque--button"
                     >
                         X
                     </button>
-                </Oque>
+                </PopupContent>
             </div>
         </>
     );
