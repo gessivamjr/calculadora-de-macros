@@ -11,6 +11,7 @@ export const CalculatorContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 
     .link {
         position: absolute;
@@ -210,7 +211,7 @@ export const ProfileContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 50px;
+    margin-top: 15px;
     padding: 30px;
     text-align: center;
 
@@ -218,6 +219,11 @@ export const ProfileContent = styled.div`
     .biotype,
     .objective {
         margin-bottom: 50px;
+    }
+
+    .title {
+        font-size: 40px;
+        margin-bottom: 40px;
     }
 
     .TMB__title,
@@ -247,5 +253,79 @@ export const ProfileContent = styled.div`
 
     .objective__radio {
         margin-right: 5px;
+    }
+`;
+
+export const MacrosContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 15px;
+    padding: 30px;
+    text-align: center;
+
+    .carbo,
+    .protein,
+    .fat {
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+
+    .carbo__title,
+    .protein__title,
+    .fat__title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .carbo__value,
+    .protein__value,
+    .fat__value {
+        font-size: 40px;
+    }
+
+    .carbo__sub,
+    .protein__sub,
+    .fat__sub{
+        font-size: 12.5px;
+        word-spacing: 2.5px;
+        letter-spacing: 0.5px;
+    }
+
+`;
+
+export const ChartsContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    padding: 30px;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+
+    .title {
+        font-size: 40px;
+        margin-bottom: 35px;
+    }
+
+    .graphic{
+        position: relative;
+        bottom: 60px;
+        right: 25px;
+    }
+
+    .disclaimer{
+        position: relative;
+        bottom: 100px;
+    }
+
+    .disclaimer__text{
+        font-size: 12.5px;
+        word-spacing: 2.5px;
+        letter-spacing: 0.5px;
     }
 `;

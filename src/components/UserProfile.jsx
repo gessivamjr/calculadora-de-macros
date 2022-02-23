@@ -14,6 +14,7 @@ export default function UserProfile() {
     return (
         <Box>
             <ProfileContent>
+                <h1 className="title">Seu perfil:</h1>
                 <div className="TMB">
                     <h3 className="TMB__title">Sua TMB:</h3>
                     <h1 className="TMB__value">{showResult} kcal</h1>
