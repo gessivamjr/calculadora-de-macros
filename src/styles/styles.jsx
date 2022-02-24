@@ -211,6 +211,7 @@ export const ProfileContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     margin-top: 15px;
     padding: 30px;
     text-align: center;
@@ -218,12 +219,12 @@ export const ProfileContent = styled.div`
     .TMB,
     .biotype,
     .objective {
-        margin-bottom: 50px;
+        margin-bottom: 35px;
     }
 
     .title {
-        font-size: 40px;
-        margin-bottom: 40px;
+        font-size: 35px;
+        margin-bottom: 30px;
     }
 
     .TMB__title,
@@ -239,7 +240,7 @@ export const ProfileContent = styled.div`
 
     .biotype__label,
     .objective__label {
-        font-size: 20px;
+        font-size: 17.5px;
     }
 
     .biotype__radio {
@@ -253,6 +254,19 @@ export const ProfileContent = styled.div`
 
     .objective__radio {
         margin-right: 5px;
+    }
+
+    .button {
+        width: 80px;
+        padding: 5px;
+        font-size: 15px;
+        border: 1px solid ${({ theme }) => theme.color.quaternary};
+        box-shadow: 1.5px 1.5px 1.5px red;
+        background-color: ${({ theme }) => theme.color.primary};
+    }
+
+    .button:hover {
+        background-color: ${({ theme }) => theme.color.secundary};
     }
 `;
 
@@ -271,8 +285,8 @@ export const MacrosContent = styled.div`
     }
 
     .title {
-        font-size: 40px;
-        margin-bottom: 40px;
+        font-size: 35px;
+        margin-bottom: 30px;
     }
 
     .carbo__title,
@@ -308,8 +322,8 @@ export const ChartsContent = styled.div`
     max-height: 100%;
 
     .title {
-        font-size: 40px;
-        margin-bottom: 35px;
+        font-size: 35px;
+        margin-bottom: 30px;
     }
 
     .graphic{

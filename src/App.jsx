@@ -1,8 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 import AllRoutes from "./routes";
 import {
+    CarbsProvider,
+    FatProvider,
     PopupOqueProvider,
     PopupSobreProvider,
+    ProteinProvider,
     ResultProvider,
 } from "./components/Contexts";
 
@@ -24,8 +27,14 @@ export default function App() {
         <PopupOqueProvider>
             <PopupSobreProvider>
                 <ResultProvider>
-                    <GlobaStyle />
-                    <AllRoutes />
+                    <CarbsProvider>
+                        <ProteinProvider>
+                            <FatProvider>
+                                <GlobaStyle />
+                                <AllRoutes />
+                            </FatProvider>
+                        </ProteinProvider>
+                    </CarbsProvider>
                 </ResultProvider>
             </PopupSobreProvider>
         </PopupOqueProvider>
